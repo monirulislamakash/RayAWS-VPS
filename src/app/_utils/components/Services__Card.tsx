@@ -30,7 +30,7 @@ export default async function ServicesCard({ id }: { id: number }) {
             <div className="icon_wraper">
                 <Image src={item.icon} className="object-contain" width={60} height={60} alt={item.name} />
             </div>
-            <h3 className="text-[22px] font-[600] uppercase text-heading ">{item.name}</h3>
+            <h2 className="text-[22px] font-[600] uppercase text-heading ">{item.name}</h2>
             <ul className={`${poppins.className} py-[15px]`}>
                 {
                     item?.benifits?.map((item, idx) => (

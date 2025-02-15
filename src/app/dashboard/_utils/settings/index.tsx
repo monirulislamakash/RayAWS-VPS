@@ -34,8 +34,8 @@ export default function Settings({ user, profileData }: { user: any, profileData
                 try {
                     setIsLoading(true);
 
-                    const { userError } = await resetPasswordEmail({ email: data.email });
-                    // console.log(userData, userError, 'userData, userError');
+                    const { userData, userError } = await resetPasswordEmail({ email: data.email });
+                    console.log(userData, userError, 'userData, userError');
 
                     if (userError) {
                         Response({
@@ -77,10 +77,10 @@ export default function Settings({ user, profileData }: { user: any, profileData
         submission: {
             toast: true,
             submitHandler: async (data: { password: string }) => {
-                // console.log(data, 'data');
+                console.log(data, 'data');
                 setIsLoading(true);
-                const { error } = await resetPassword({ password: data.password });
-                // console.log(userData, error, 'userData, error');
+                const { data: userData, error } = await resetPassword({ password: data.password });
+                console.log(userData, error, 'userData, error');
 
                 if (error) {
                     Response({

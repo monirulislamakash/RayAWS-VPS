@@ -4,6 +4,7 @@ import { Poppins } from 'next/font/google'
 import { Toaster } from "sonner";
 import AllHeaderTags from "@/components/common/AllHeaderTags";
 import AllbodyTag from "@/components/common/AllbodyTag";
+
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600']
@@ -11,7 +12,15 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Ray Advertising",
-  description: "Ray Advertising",
+  description: "Accelerate business with expert Pay-Per-Call, lead generation, and affiliate marketing solutions. Boost customer acquisition and sales with Ray Advertising.",
+  openGraph: {
+    images:['../../public/images/og/siteOgImage.png'],
+    title: "Ray Advertising",
+    description: "Accelerate business with expert Pay-Per-Call, lead generation, and affiliate marketing solutions. Boost customer acquisition and sales with Ray Advertising.",
+    url:'https://rayadvertising.com/',
+    type:'website',
+
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +36,7 @@ export default function RootLayout({
       <body
         className={`${poppins.className} antialiased`}
       >
-        <AllbodyTag/>
+        <AllbodyTag />
 
         {children}
         <Toaster />

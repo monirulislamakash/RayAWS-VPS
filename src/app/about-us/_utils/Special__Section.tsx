@@ -1,5 +1,5 @@
 'use client'
-const bg = "/images/about-us/special.png";
+// const bg = "/images/about-us/special.png";
 import { Oswald } from 'next/font/google'
 import Image from 'next/image'
 import { motion } from "motion/react";
@@ -35,7 +35,7 @@ const specialty = [
 
 export default function Special__Section() {
     return (
-        <div className="section relative bg-cover bg-center bg-[#F2F2F2] " style={{ backgroundImage: `url(${bg})` }}>
+        <div className="About_Special__Section section relative bg-cover bg-center bg-[#F2F2F2]">
             <div className="container ">
                 <h2 className={`${oswald.className} text-[38px] md:text-[48px] font-semibold text-primary text-center uppercase pb-[40px]`}>
                     Our Specialty

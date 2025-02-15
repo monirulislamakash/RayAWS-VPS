@@ -16,9 +16,8 @@ const AllHeaderTags = () => {
             `}
         </script>
         {/* <!-- End Google Tag Manager --> */}
-
+        {/* <!-- Social Meta Tags --> */}
     </>
   )
 }
-
 export default AllHeaderTags

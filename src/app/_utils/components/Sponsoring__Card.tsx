@@ -46,7 +46,7 @@ export default async function SponsoringCard({ id }: { id: number }) {
                         {item?.sub_title}
                     </p>
 
-                    <Link target="_blank" href={`${item?.button_link}`} className="slide_from_left group px-5 inline-flex items-center justify-center gap-[6px] rounded-full h-[45px] text-[16px] font-medium">
+                    <Link target="_blank" rel="noopener"  href={`${item?.button_link}`} className="slide_from_left group px-5 inline-flex items-center justify-center gap-[6px] rounded-full h-[45px] text-[16px] font-medium">
                         <span className="pr-2 ">Learn More</span>
 
                         <svg className={`w-[18px] h-[18px] transition-transform duration-300 group-hover:fill-white fill-primary`} viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg">

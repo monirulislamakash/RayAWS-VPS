@@ -21,7 +21,7 @@ export default function Heading({ label, desc, headingStyle, descStyle }: { desc
 
 
             className={` heading_wraper text-center max-w-[1000px] mx-auto`}>
-            <h2 className={`${headingStyle ? headingStyle : 'text-heading'}  text-[32px] md:text-[48px] font-[600] pb-[8px] md:pb-4 uppercase ${oswald.className}`}>{label}</h2>
+            <h3 className={`${headingStyle ? headingStyle : 'text-heading'}  text-[32px] md:text-[48px] font-[600] pb-[8px] md:pb-4 uppercase ${oswald.className}`}>{label}</h3>
             {
                 desc &&
                 <p className={`${poppins.className} text-[16px] md:text-[18px] font-[400] ${descStyle ? descStyle : 'text-text_color '}`} dangerouslySetInnerHTML={{ __html: desc }} />

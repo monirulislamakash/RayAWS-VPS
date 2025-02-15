@@ -442,7 +442,9 @@ export default function HeroSection({ data }: { data: IHome_Hero_SectionData }) 
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.5 }}
                         className=" flex flex-wrap gap-2 tracking-tighter leading-[42px] md:leading-[66px] text-[34px] md:text-[54px] font-[500] uppercase pb-5 text-white cursor-pointer">
-                        <div className="flex items-center tracking-normal">
+                        PERFECT MARKETING WITH PERFECT PARTNER
+                        {/* // className=" flex flex-wrap gap-2 tracking-tighter leading-[42px] md:leading-[66px] text-[34px] md:text-[54px] font-[500] uppercase pb-5 text-white cursor-pointer"> */}
+                        {/* <div className="flex items-center tracking-normal">
                         {
                             title.title1.map((char, index) => (
                                 <span key={index} className="inline-block hover:scale-125 hover:text-secondary transition-all duration-300">
@@ -477,6 +479,7 @@ export default function HeroSection({ data }: { data: IHome_Hero_SectionData }) 
                                 </span>
                             ))
                         }
+                        
                         </div>
                         <div className="flex items-center tracking-normal">
                         {
@@ -486,7 +489,7 @@ export default function HeroSection({ data }: { data: IHome_Hero_SectionData }) 
                                 </span>
                             ))
                         }
-                        </div>
+                        </div> */}
                     </motion.h1>
 
                     <motion.div

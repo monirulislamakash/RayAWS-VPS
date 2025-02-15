@@ -8,7 +8,6 @@ import { z } from "zod";
 import { useState } from "react";
 
 
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Cards___Form({ cards: { sectionData } }: { cards: any }) {
     const [isLoading, setIsLoading] = useState(false);
@@ -56,7 +55,6 @@ export default function Cards___Form({ cards: { sectionData } }: { cards: any })
         //     })),
         //     validation: z.any().optional(),
         // },
-
         {
             id: 4,
             type: "select",
@@ -69,18 +67,9 @@ export default function Cards___Form({ cards: { sectionData } }: { cards: any })
             ],
             validation: z.string().optional(),
             defaultValue: sectionData?.section
-        },  
-        {
-            id: 5,
-            type: "multi-input",
-            name: "featured_items",
-            label: "Featured Items",
-            placeholder: "Enter your featured items",
-            validation: z.any().optional(),
-            defaultValue: sectionData?.lists?.map((item: any) => item?.name)
         },
         {
-            id: 6,
+            id: 5,
             type: "text",
             name: "button_link",
             label: "Button Link",
@@ -89,7 +78,7 @@ export default function Cards___Form({ cards: { sectionData } }: { cards: any })
             defaultValue: sectionData?.button_link
         },
         {
-            id: 7,
+            id: 6,
             type: "text",
             name: "call_now",
             label: "Number for Call Now",
@@ -98,7 +87,7 @@ export default function Cards___Form({ cards: { sectionData } }: { cards: any })
             defaultValue: sectionData?.call_now
         },
         {
-            id: 8,
+            id: 7,
             type: "editor",
             name: "content",
             label: "Description",
@@ -112,7 +101,7 @@ export default function Cards___Form({ cards: { sectionData } }: { cards: any })
         fields: cardsFormFields,
         submission: {
             toast: true,
-            submitHandler: async (data: { title: string, sub_title: string, icon: File[], button_link: string, call_now: string, content: string, image: File, section: string; featured_items: string[] }) => {
+            submitHandler: async (data: { title: string, sub_title: string, icon: File[], button_link: string, call_now: string, content: string, image: File, section: string }) => {
                 try {
                     setIsLoading(true);
                     if (data?.icon) {
@@ -127,15 +116,14 @@ export default function Cards___Form({ cards: { sectionData } }: { cards: any })
                             icon: image?.publicUrl,
                             call_now: data?.call_now,
                             description: data?.content,
-                            section: data?.section,
-                            lists: data?.featured_items?.map((item: any) => ({ name: item }))
+                            section: data?.section
                         }
                         // const { createdData, createError } = await createData({ data: cardData, tableName: "cards" });
                         // console.log(createdData, createError, 'createdData, createError');
 
                         // update data
-                        const { updateError } = await updateSection({ data: cardData, sectionName: "cards", id: sectionData?.id });
-                        // console.log(updatedData, updateError, 'updatedData, updateError');
+                        const { updatedData, updateError } = await updateSection({ data: cardData, sectionName: "cards", id: sectionData?.id });
+                        console.log(updatedData, updateError, 'updatedData, updateError');
 
                         if (updateError) {
                             Response({
@@ -198,7 +186,6 @@ export default function Cards___Form({ cards: { sectionData } }: { cards: any })
     return (
         <div className="p-4 shadow-xl rounded-lg border bg-white max-w-[800px] mx-auto w-full">
             <FormX pending={isLoading} submittionLabel="Update Card" structure={cardsFormStructure} />
-            {/* <MultiInput form={cardsFormStructure} name="categories" label="Categories" placeholder="Enter your categories" />   */}
         </div>
     )
 }

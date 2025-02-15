@@ -65,7 +65,7 @@ export default function Blog__Card({ item }: { item: BlogData }) {
                }
             </div>
             <div className={`${oswald.className}`}>
-                <h3 className="text-[20px] md:text-[24px] font-semibold text-primary pb-1">{item?.title}</h3>
+                <h2 className="text-[20px] md:text-[24px] font-semibold text-primary pb-1">{item?.title}</h2>
                 <div className={`${poppins.className} flex items-center gap-2 pb-5`}>
                     <CalendarIcon className='w-[16px] h-[16px] text-secondary' />
                     {/* 31 July- 1 August */}

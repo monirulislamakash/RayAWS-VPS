@@ -61,19 +61,19 @@ export default async function AboutUs() {
 
     return (
         <>
-            <Header />
-            <main className="overflow-hidden">
-                <PageHeaderSection title="About us" description="RAPIDLY GROWING #1 PERFORMANCE AFFILIATE NETWORK" bg="/images/about-bg.png" />
-                <Common__Section data={two_side_section ?? []} />
-                <Divider />
-                <BrandingSection label="TRAFFIC PARTNERS" data={mapImages(trafficData)} />
-                <Special__Section />
-                <BrandingSection label="ADVERTISING PARTNERS" data={mapImages(advertisingData)} sideImage={true} />
-                <TestimonialSection />
-                <Newsletter />
-                <Blog__Carousel blogs={blogs || []} />
-            </main>
-            <Footer />
+            <Header/>
+              <main className="overflow-hidden">
+                  <PageHeaderSection title="About us" description="RAPIDLY GROWING #1 PERFORMANCE AFFILIATE NETWORK" bg="/images/about-bg.png"/>
+                  <Common__Section data={two_side_section ?? []}/>
+                  <Divider/>
+                  <BrandingSection label="TRAFFIC PARTNERS" data={mapImages(trafficData)}/>
+                  <Special__Section/>
+                  <BrandingSection label="ADVERTISING PARTNERS" data={mapImages(advertisingData)} sideImage={true}/>
+                  <TestimonialSection/>
+                  <Newsletter/>
+                  <Blog__Carousel blogs={blogs || []}/>
+              </main>
+            <Footer/>
         </>
     )
   } catch (error) {

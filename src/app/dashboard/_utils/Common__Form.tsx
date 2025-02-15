@@ -146,7 +146,7 @@ const Common__Form = ({ sectionDataBranding, blogs, recentNews, sectionDataGalle
                 }
 
                 // update the section
-                const { updateError } = await updateSection({ id: '3', sectionName: 'branding', data: newEntry })
+                const { updatedData, updateError } = await updateSection({ id: '3', sectionName: 'branding', data: newEntry })
                 if (updateError) {
                     console.log(updateError)
                     Response({
@@ -155,6 +155,7 @@ const Common__Form = ({ sectionDataBranding, blogs, recentNews, sectionDataGalle
                     })
                     setIsfeaturedLoading(false)
                 }else{
+                    console.log(updatedData)
                     Response({
                         title: 'Branding Section Updated',
                         description: 'Branding Section Updated Successfully'

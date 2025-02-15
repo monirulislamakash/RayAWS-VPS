@@ -94,28 +94,28 @@ const trafficData: any = await getSectionData({ sectionName: 'branding', isSingl
                     </div>
                     </AnimateContainer>
                     {/* left top */}
-                    <div className=" absolute top-[5%] left-0">
+                    {/* <div className=" absolute top-[5%] left-0">
                         <Image src="/images/services/left-top.png" className="object-contain" width={66} height={33} alt="" />
-                    </div>
+                    </div> */}
                     {/* left bottom */}
-                    <div className=" absolute bottom-[10%] left-0">
+                    {/* <div className=" absolute bottom-[10%] left-0">
                         <Image src="/images/services/left-bottom.png" className="object-contain" width={36} height={25} alt="" />
-                    </div>
+                    </div> */}
                     {/* Right top */}
-                    <div className=" absolute top-[6%] right-0">
+                    {/* <div className=" absolute top-[6%] right-0">
                         <Image src="/images/services/right-top.png" className="object-contain" width={44} height={44} alt="" />
-                    </div>
+                    </div> */}
                     {/* right bottom */}
-                    <div className=" absolute bottom-[10%] right-0">
+                    {/* <div className=" absolute bottom-[10%] right-0">
                         <Image src="/images/services/left-bottom.png" className="object-contain rotate-180" width={30} height={64} alt="" />
-                    </div>
-                    <div className=" absolute top-[50%] right-[15%]">
+                    </div> */}
+                    {/* <div className=" absolute top-[50%] right-[15%]">
                         <Image src="/images/middle-shape.png" className="object-contain rotate-180" width={75} height={75} alt="" />
-                    </div>
+                    </div> */}
                 </div>
                 <Divider />
                 <BrandingSection label="TRAFFIC PARTNERS" data={trafficDataImages} />
-                <div className="py-[60px] md:py-[80px] relative bg-primary bg-cover bg-top" style={{ backgroundImage: "url('/images/Advertiser-bg.png')" }}>
+                <div className="py-[60px] md:py-[80px] relative bg-primary bg-cover bg-top">
                     <AnimateContainer>
                     <div className="container">
                         <h2 className={`${oswald.className} text-[28px] md:text-[38px] font-semibold text-white`}>
@@ -137,24 +137,24 @@ const trafficData: any = await getSectionData({ sectionName: 'branding', isSingl
                     </div>
                     </AnimateContainer>
                     {/* left top */}
-                    <div className=" absolute top-[5%] left-0">
+                    {/* <div className=" absolute top-[5%] left-0">
                         <Image src="/images/services/left-top.png" className="object-contain" width={66} height={33} alt="" />
-                    </div>
+                    </div> */}
                     {/* left bottom */}
-                    <div className=" absolute bottom-[10%] left-0">
+                    {/* <div className=" absolute bottom-[10%] left-0">
                         <Image src="/images/services/left-bottom.png" className="object-contain" width={36} height={25} alt="" />
-                    </div>
+                    </div> */}
                     {/* Right top */}
-                    <div className=" absolute top-[6%] right-0">
+                    {/* <div className=" absolute top-[6%] right-0">
                         <Image src="/images/services/right-top.png" className="object-contain" width={44} height={44} alt="" />
-                    </div>
+                    </div> */}
                     {/* right bottom */}
-                    <div className=" absolute bottom-[10%] right-0">
+                    {/* <div className=" absolute bottom-[10%] right-0">
                         <Image src="/images/services/left-bottom.png" className="object-contain rotate-180" width={30} height={64} alt="" />
-                    </div>
-                    <div className=" absolute top-[50%] right-[15%]">
+                    </div> */}
+                    {/* <div className=" absolute top-[50%] right-[15%]">
                         <Image src="/images/middle-shape.png" className="object-contain rotate-180" width={75} height={75} alt="" />
-                    </div>
+                    </div> */}
                 </div>
 
                 <BrandingSection label="ADVERTISING PARTNERS" data={advertisingDataImages} sideImage={true} />

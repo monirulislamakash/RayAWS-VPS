@@ -11,71 +11,32 @@ export const metadata: Metadata = {
 };
 
 
-type Blog = {
-  id: number;
-  title: string;
-  description: string;
-  images: any[];
-};
 
-type Event = {
-  id: number;
-  name: string;
-  date: string;
-  gallery: string[];
-  location: string;
-  description: {
-    paragraph: (string | JSX.Element)[]; 
-  };
-  content: string;
-  start_date: string;
-  end_date: string;
-  images: any[];
-};
 
 export default async function Events() {
+    const {tableData: blogs} = await getTableData({ tableName: "blogs" })     
 
-  const [blogsResponse, eventsResponse] = await Promise.all([
-    getTableData({ tableName: "blogs" }).catch(error => {
-      console.error('Failed to fetch blogs:', error);
-      return { tableData: [] };
-    }),
-    getTableData({ tableName: "events" }).catch(error => {
-      console.error('Failed to fetch events:', error);
-      return { tableData: [] };
-    })
-  ]);
+    const {tableData: events} = await getTableData({ tableName: "events" })
 
-  const blogs = blogsResponse.tableData as Blog[];
-  const events = eventsResponse.tableData as Event[];
 
-  return (
-    <>
-      <Header />
-      <main>
-        <PageHeaderSection 
-          title="Events" 
-          description="RAPIDLY GROWING #1 PERFORMANCE AFFILIATE NETWORK" 
-          bg="/images/events-bg.png" 
-        />
+    return (
+        <>
+            <Header />
+            <main>
+                <PageHeaderSection title="Events" description="RAPIDLY GROWING #1 PERFORMANCE AFFILIATE NETWORK" bg="/images/events-bg.png" />
 
-        <div className="section">
-          {events?.length > 0 ? (
-            events.map((item) => (
-              <Events__Section 
-                key={item.id} 
-                idx={item.id} 
-                item={item} 
-              />
-            ))
-          ) : (
-            <p>No events found</p>
-          )}
-        </div>
+                <div className="section">
+                    {
+                        events?.map((item, idx) => (
+                            <Events__Section key={idx} idx={idx} item={item} />
+                        ))
+                    }
+                </div>
 
-        <Blog__Carousel blogs={blogs} />
-      </main>
-      <Footer />
-    </>
-  );
+                <Blog__Carousel blogs={blogs || []} />
+
+            </main>
+            <Footer />
+        </>
+    )
 }

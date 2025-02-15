@@ -11,82 +11,42 @@ import Common__Form from "@/app/dashboard/_utils/Common__Form"
 import Pages__Form from "@/app/dashboard/_utils/Pages_Form"
 import { redirect } from "next/navigation"
 import { createClient } from "@/utils/supabase/server"
-
 const Home = async () => {
-  // Authentication check
+
   const supabase = await createClient();
   const { data: userData } = await supabase.auth.getUser();
 
   if (userData?.user?.aud !== "authenticated") {
-    redirect("/auth");
+      redirect("/auth");
   }
 
-  // Parallel data fetching using Promise.all
-  const [
-    heroSections,
-    twoSideData,
-    commonSections,
-    pageContents
-  ] = await Promise.all([
-    // Hero sections
-    Promise.all([
-      getSectionData({page: 'home', sectionName: 'hero_section'}),
-      getSectionData({page: 'about', sectionName: 'hero_section'}),
-      getSectionData({page: 'contact', sectionName: 'hero_section'}),
-      getSectionData({page: 'service', sectionName: 'hero_section'}),
-      getSectionData({page: 'career', sectionName: 'hero_section'}),
-      getSectionData({page: 'events', sectionName: 'hero_section'}),
-      getSectionData({page: 'blog', sectionName: 'hero_section'}),
-      getSectionData({page: 'join', sectionName: 'hero_section'}),
-      getSectionData({page: 'team', sectionName: 'hero_section'})
-    ]),
-    // Two side section data
-    Promise.all([
-      getSectionData({sectionName: 'two_side_section', isMultiple: true}),
-      getTableData({tableName: 'cards'})
-    ]),
-    // Common sections
-    Promise.all([
-      getSectionData({sectionName: 'branding', isMultiple: true}),
-      getTableData({tableName: 'blogs'}),
-      getSectionData({sectionName: 'recent_blogs_section', isSingle: true, id: 1}),
-      getSectionData({sectionName: 'gallery', isSingle: true, id: 1})
-    ]),
-    // Page contents
-    Promise.all([
-      getSectionData({sectionName: 'other_contents', page: 'privacy-policy'}),
-      getSectionData({sectionName: 'other_contents', page: 'terms'})
-    ])
-  ]);
+  const {sectionData: heroDataHome, } = await getSectionData({page: 'home', sectionName: 'hero_section'}); 
+  const {sectionData: sectionDataAbout, } = await getSectionData({page: 'about', sectionName: 'hero_section'});
+  const {sectionData: sectionDataContact, } = await getSectionData({page: 'contact', sectionName: 'hero_section'});
+  const {sectionData: sectionDataService,} = await getSectionData({page: 'service', sectionName: 'hero_section'});
+  const {sectionData: sectionDataCareer,} = await getSectionData({page: 'career', sectionName: 'hero_section'});
+  const {sectionData: sectionDataEvents,} = await getSectionData({page: 'events', sectionName: 'hero_section'});
+  const {sectionData: sectionDataBlog,} = await getSectionData({page: 'blog', sectionName: 'hero_section'});
+  const {sectionData: sectionDataJoin,} = await getSectionData({page: 'join', sectionName: 'hero_section'});
+  const {sectionData: sectionDataTeam,} = await getSectionData({page: 'team', sectionName: 'hero_section'});
 
-  const [
-    {sectionData: heroDataHome},
-    {sectionData: sectionDataAbout},
-    {sectionData: sectionDataContact},
-    {sectionData: sectionDataService},
-    {sectionData: sectionDataCareer},
-    {sectionData: sectionDataEvents},
-    {sectionData: sectionDataBlog},
-    {sectionData: sectionDataJoin},
-    {sectionData: sectionDataTeam}
-  ] = heroSections;
+  const {sectionData: sectionDataTwoSide,} = await getSectionData({sectionName: 'two_side_section', isMultiple: true});
 
-  const [
-    {sectionData: sectionDataTwoSide},
-    {tableData: cards}
-  ] = twoSideData;
+  const {sectionData: sectionDataBranding,} = await getSectionData({sectionName: 'branding', isMultiple: true});
+  const {tableData: blogs} = await getTableData({tableName: 'blogs'});
 
-  const [
-    {sectionData: sectionDataBranding},
-    {tableData: blogs},
-    {sectionData: sectionDataRecentNews},
-    {sectionData: sectionDataGallery}
-  ] = commonSections;
+  // get recent news
+  const {sectionData: sectionDataRecentNews,} = await getSectionData({sectionName: 'recent_blogs_section', isSingle: true, id: 1});
 
-  const [
-    {sectionData: privacyDataOtherContents},
-    {sectionData: termsConditionDataOtherContents}
-  ] = pageContents;
+  // get gallery
+  const {sectionData: sectionDataGallery,} = await getSectionData({sectionName: 'gallery', isSingle: true, id: 1});
+
+  const {tableData: cards} = await getTableData({tableName: 'cards'});
+
+  // get other contents
+  const {sectionData:privacyDataOtherContents,} = await getSectionData({sectionName: 'other_contents', page: 'privacy-policy'});
+
+  const {sectionData:termsConditionDataOtherContents,} = await getSectionData({sectionName: 'other_contents', page: 'terms'});
 
   return (
     <div className="container section">

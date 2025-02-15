@@ -65,14 +65,6 @@ export default function Cards___Form() {
         },
         {
             id: 5,
-            type: "multi-input",
-            name: "featured_items",
-            label: "Featured Items",
-            placeholder: "Enter your featured items",
-            validation: z.any().optional(),
-        },
-        {
-            id: 6,
             type: "text",
             name: "link",
             label: "Link",
@@ -80,7 +72,7 @@ export default function Cards___Form() {
             validation: z.string().optional(),
         },
         {
-            id: 7,
+            id: 6,
             type: "text",
             name: "call_now",
             label: "Number for Call Now",
@@ -88,7 +80,7 @@ export default function Cards___Form() {
             validation: z.string().optional(),
         },
         {
-            id: 8,
+            id: 7,
             type: "editor",
             name: "description",
             label: "Description",
@@ -101,7 +93,7 @@ export default function Cards___Form() {
         fields: cardsFormFields,
         submission: {
             toast: true,
-            submitHandler: async (data: { title: string, sub_title: string, icon: File[], link: string, call_now: string, description: string, image:File[], section: string; featured_items: string[] }) => {
+            submitHandler: async (data: { title: string, sub_title: string, icon: File[], link: string, call_now: string, description: string, image:File[], section: string }) => {
                 try {
                     setIsLoading(true);
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -116,8 +108,7 @@ export default function Cards___Form() {
                         button_link: data?.link,
                         call_now: data?.call_now,
                         description: data?.description,
-                        section: data?.section,
-                        lists: data?.featured_items?.map((item: any) => ({ name: item }))
+                        section: data?.section
                     }
                     const { createError } = await createData({ data: cardData, tableName: "cards" });
             

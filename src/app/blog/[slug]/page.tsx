@@ -45,7 +45,6 @@ export default async function SingleBlog({ params: { slug } }: any) {
             icon: <User2Icon className='w-[15px] h-[15px] text-secondary' />,
             title: blogsData?.author_name,
         },
-
     ]
     return (
         <>

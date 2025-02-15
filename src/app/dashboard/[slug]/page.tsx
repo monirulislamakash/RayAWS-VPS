@@ -11,46 +11,47 @@ import Faqs from '../_utils/Faqs';
 import Settings from '../_utils/settings';
 import { createClient } from '@/utils/supabase/server';
 
-const DASHBOARD_COMPONENTS = {
-  blogs: Blogs,
-  jobs: Jobs,
-  reviews: Reviews,
-  teams: Teams,
-  events: Events,
-  users: Users,
-  cards: Cards,
-  contact: Contact,
-  faqs: Faqs,
-  settings: Settings,
-} as const;
 
-type ValidSlug = keyof typeof DASHBOARD_COMPONENTS;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function DashboardPage({ params }: { params: any }) {
+    const { slug } = await params;
+    
+    // based on the slug, show component  
 
-export default async function DashboardPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+    if(!slug) return notFound();
 
-  if (!slug || !(slug in DASHBOARD_COMPONENTS)) {
-    return notFound();
-  }
-
-  // Only fetch user data if we're accessing the settings page
-  if (slug === 'settings') {
     const supabase = await createClient();
-    const [userResponse, profileResponse] = await Promise.all([
-      supabase.auth.getUser(),
-      supabase
-        .from('profiles')
-        .select()
-        .eq('id', (await supabase.auth.getUser()).data.user?.id)
-        .single()
-    ]);
 
-    const { data: { user } } = userResponse;
-    const { data: profileData } = profileResponse;
+    //get user details supabase
+    const { data: { user } } = await supabase.auth.getUser();
 
-    return <Settings user={user} profileData={profileData} />;
-  }
+    // get profile data
+    const { data: profileData } = await supabase
+    .from(`profiles`)
+    .select()
+    .eq('id', `${user?.id}`)
+    .single()
+    // console.log(profileData, 'profileData');
 
-  const Component = DASHBOARD_COMPONENTS[slug as ValidSlug] as React.ComponentType<{ slug: string }>;
-  return <Component slug={slug} />;
-}   
+  if (slug === "blogs") {
+        return <Blogs slug={slug}  />
+    }else if(slug === "jobs"){
+        return <Jobs slug={slug}  />
+    }else if(slug === "reviews"){
+        return <Reviews slug={slug}  />
+    }else if(slug === "teams"){
+        return <Teams slug={slug}  />
+    }else if(slug === "events"){
+        return <Events slug={slug}  />
+    }else if(slug === "users"){
+        return <Users />
+    }else if(slug === "cards"){
+        return <Cards slug={slug}  />
+    }else if(slug === "contact"){
+        return <Contact   />
+    }else if(slug === "faqs"){
+        return <Faqs slug={slug}  />
+    }else if(slug === "settings"){
+        return <Settings user={user} profileData={profileData} />
+    }
+}

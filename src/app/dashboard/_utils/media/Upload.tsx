@@ -84,7 +84,7 @@ export default function ImageUpload() {
 
 
 
-  // console.log(previews, 'previews');
+  console.log(previews, 'previews');
 
   return (
     <div className="w-full max-w-md mx-auto">

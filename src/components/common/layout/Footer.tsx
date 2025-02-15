@@ -50,7 +50,7 @@ const socials = [
         icon: <LinkedinIcon className="w-[40px] h-[40px]" />
     },
     {
-        href: '#',
+        href: 'https://x.com/rayadvertising?lang=he&mx=2',
         icon: <XIcon className="w-[40px] h-[40px]" />
     },
     {
@@ -76,33 +76,33 @@ export default async function Footer() {
                         <div className="conpany__info col-span-12 lg:col-span-2">
                             <Logo />
                             <div className="box_item text-white pt-[20px]">
-                                <h4 className={`${oswald.className} flex items-center gap-1 text-[18px] font-[500] uppercase`}>
+                                <h3 className={`${oswald.className} flex items-center gap-1 text-[18px] font-[500] uppercase`}>
                                     <span><MapPin className="w-[20px] h-[20px] text-secondary" /></span>
                                     <span>USA Office:</span>
-                                </h4>
+                                </h3>
                                 <p className=" tracking-wide max-w-[200px] py-[10px] text-[14px] font-[400] uppercase">1267 Willis ST STE 200 Redding CA 96001 USA</p>
 
-                                <h4 className={` flex items-center gap-2 text-[18px] font-[500] uppercase`}>
+                                <h3 className={` flex items-center gap-2 text-[18px] font-[500] uppercase`}>
                                     <span><Phone className="w-[20px] h-[20px] text-secondary" /></span>
                                     <span>
                                         <Link className="inline-block text-[14px] font-[400] tracking-wide" href="tel:+1 (435) 574 4123">+1 (435) 574 4123</Link>
                                     </span>
-                                </h4>
+                                </h3>
                             </div>
                             <div className="box_item text-white pt-[20px]">
-                                <h4 className={`${oswald.className} flex items-center gap-1 text-[18px] font-[500] uppercase`}>
+                                <h3 className={`${oswald.className} flex items-center gap-1 text-[18px] font-[500] uppercase`}>
                                     <span><MapPin className="w-[20px] h-[20px] text-secondary" /></span>
                                     <span>BD Office:</span>
-                                </h4>
+                                </h3>
                                 <p className="tracking-wide max-w-[250px] py-[10px] text-[14px] font-[400] uppercase">Kali Mandir, Chondon - Baisha Rd, Bogra 5800</p>
 
 
-                                <h4 className={` flex items-center gap-2 text-[18px] font-[500] uppercase`}>
+                                <h3 className={` flex items-center gap-2 text-[18px] font-[500] uppercase`}>
                                     <span><Phone className="w-[20px] h-[20px] text-secondary" /></span>
                                     <span>
                                         <Link className="inline-block text-[14px] font-[400] tracking-wide" href="tel:+880 1748-612211">+880 1748-612211</Link>
                                     </span>
-                                </h4>
+                                </h3>
                             </div>
                             <Link className="flex items-center text-white text-[14px] font-[400] gap-1 pt-[10px]" href="mailto:contact@rayadvertising.com">
                                 <span><Mail className="w-[20px] h-[20px] text-secondary" /> </span>
@@ -139,7 +139,7 @@ export default async function Footer() {
                                                     <div key={idx} className=" relative w-[80px] h-[80px] group">
                                                         <Image className="w-full h-full object-cover rounded-[7px]" src={image} width={80} height={80} alt="blog image" />
                                                         <div className=" z-[1] rounded-[7px] absolute left-0 top-0 opacity-0 group-hover:opacity-100 transition-all duration-300  bg-[#56c1cddd] flex items-center justify-center w-full h-full">
-                                                            <Link href={`/blog/${item?.slug}`} className="flex items-center justify-center gap-2 w-full h-full">
+                                                            <Link href={`/events/${item?.id}`} className="flex items-center justify-center gap-2 w-full h-full">
                                                                 <Plus className="w-[48px] h-[48px] text-white" />
                                                             </Link>
                                                         </div>
@@ -181,7 +181,7 @@ export default async function Footer() {
                                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                             socials?.map((item: any, idx: any) => (
                                                 <li key={idx} className=" text-white">
-                                                    <Link target="_blank" className="hover:text-secondary hover:underline transition-all duration-500 block uppercase text-[14px] font-[500] tracking-wide" href={item.href}>
+                                                    <Link target="_blank" rel="noopener"  className="hover:text-secondary hover:underline transition-all duration-500 block uppercase text-[14px] font-[500] tracking-wide" href={item.href}>
                                                         {item.icon}
                                                     </Link>
                                                 </li>

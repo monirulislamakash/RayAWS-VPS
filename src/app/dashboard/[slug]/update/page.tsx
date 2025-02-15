@@ -12,35 +12,34 @@ import Faqs___Form from "./_utils/Faqs_Form";
 export default async function UpdatePage({ params, searchParams }: { params: any, searchParams: any }) {
     const { slug } = params;
 
- 
+    // based on the slug, show component 
     if (!slug) return notFound();
 
     const { id } = searchParams;
 
-    const [
-        blog,
-        jobs,
-        teams,
-        reviews,
-        cards,
-        faqs,
-        jobCategories,
-        teamCategories,
-        events
-      ] = await Promise.all([
-        getSectionData({ sectionName: 'blogs', id: id, isSingle: true }),
-        getSectionData({ sectionName: 'jobs', id: id, isSingle: true }),
-        getSectionData({ sectionName: 'teams', id: id, isSingle: true }),
-        getSectionData({ sectionName: 'reviews', id: id, isSingle: true }),
-        getSectionData({ sectionName: 'cards', id: id, isSingle: true }),
-        getSectionData({ sectionName: 'faqs_section', id: id, isSingle: true }),
-        getSectionData({ sectionName: 'events', id: id, isSingle: true }),
-        getTableData({ tableName: 'job_categories' }),
-        getTableData({ tableName: 'team_categories' }),
-      ])
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const blog: any = await getSectionData({ sectionName: 'blogs', id: id, isSingle: true })
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const jobs: any = await getSectionData({ sectionName: 'jobs', id: id, isSingle: true })
+    const { tableData: jobCategories } = await getTableData({ tableName: "job_categories" });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const teams: any = await getSectionData({ sectionName: 'teams', id: id, isSingle: true })
+    const { tableData: teamCategories } = await getTableData({ tableName: "team_categories" });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const reviews: any = await getSectionData({ sectionName: 'reviews', id: id, isSingle: true })
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const events: any = await getSectionData({ sectionName: 'events', id: id, isSingle: true })
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const cards: any = await getSectionData({ sectionName: 'cards', id: id, isSingle: true })
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const {sectionData: faqs}: any = await getSectionData({ sectionName: 'faqs_section', id: id, isSingle: true })
 
 
     if (slug === "blogs") {
@@ -51,7 +50,7 @@ export default async function UpdatePage({ params, searchParams }: { params: any
         return <main className=" mx-auto max-w-[1000px] w-full"><Review__Form reviews={reviews} /></main>
     }
     else if(slug === "teams"){
-        return <Team__Form team={teams} teamCategories={teamCategories?.tableData || []} />
+        return <Team__Form team={teams} teamCategories={teamCategories || []} />
     }else if(slug === "events"){
         return <Event__Form events={events} />
     }else if(slug === "cards"){

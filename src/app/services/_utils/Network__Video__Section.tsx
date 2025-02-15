@@ -9,7 +9,7 @@ export default function NetworkVideoSection() {
 
     
     return (
-        <div className="bg-primary section relative bg-top bg-no-repeat " style={{ backgroundImage: `url(/images/network-bg.png)` }}>
+        <div className="Services_Network__Video__Section bg-primary section relative bg-top bg-no-">
             <div className="container relative z-10">
                 <h2 className={`${oswald.className} text-[38px] md:text-[48px] font-semibold text-white text-center uppercase pb-[20px]`}>
                     Affiliate Network

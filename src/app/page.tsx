@@ -13,8 +13,14 @@ import Footer from "@/components/common/layout/Footer";
 import { getTableData } from "@/utils/api";
 import { getSectionData } from "@/utils/api";
 import { createClient } from "@/utils/supabase/server";
+import Blog__Carousel from "./about-us/_utils/Blog__Carousel";
 
-
+type Blog = {
+  id: number;
+  title: string;
+  description: string;
+  images: any[];
+};
 export default async function Home() {
   const supabase = await createClient();
 
@@ -45,7 +51,14 @@ export default async function Home() {
   const trafficDataImages = processImages(trafficResponse);
   const advertisingDataImages = processImages(advertisingResponse);
   const featuredInDataImages = processImages(featuredInResponse);
-
+  // Add By me 
+  const [blogsResponse] = await Promise.all([
+    getTableData({ tableName: "blogs" }).catch(error => {
+      console.error('Failed to fetch blogs:', error);
+      return { tableData: [] };
+    }),
+  ]);
+  const blogs = blogsResponse.tableData as Blog[];
   return (
     <>
       <Header />
@@ -55,14 +68,14 @@ export default async function Home() {
         <Divider />
         <BrandingSection label="TRAFFIC PARTNERS" data={trafficDataImages} />
         <WhyChooseSection />
-        <BrandingSection label="ADVERTISING PARTNERS" data={advertisingDataImages} sideImage={true} />
+        {/* <BrandingSection label="ADVERTISING PARTNERS" data={advertisingDataImages} sideImage={true} /> */}
         <FaqSection data={faqResponse?.tableData || []} />
         <Divider />
         <BrandingSection label="FEATURED IN" data={featuredInDataImages} />
         <SponsoringSection />
-        <TestimonialSection />
-        <Newsletter />
         <Gallery__Carousel images={images} />
+        <Newsletter />
+        <Blog__Carousel blogs={blogs} />
       </main>
       <Footer />
     </>
