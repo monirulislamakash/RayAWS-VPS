@@ -11,7 +11,13 @@ import Header from "@/components/common/layout/Header";
 import Footer from "@/components/common/layout/Footer";
 import { getSectionData, getTableData } from "@/utils/api";
 import { createClient } from "@/utils/supabase/server";
-
+import Gallery__Carousel from "../_utils/components/Gallery__Carousel";
+type Blog = {
+  id: number;
+  title: string;
+  description: string;
+  images: any[];
+};
 interface SectionData {
   sectionData: {
     images: Array<{ publicUrl: string }>;
@@ -58,7 +64,15 @@ export default async function AboutUs() {
         .eq('page', 'about')
         .single()
     ]);
+    
 
+    const [galleryResponse] = await Promise.all([
+      getSectionData({ sectionName: 'gallery', isSingle: true, id: 1 }),
+    ]);
+    type ImageData = { publicUrl: string };
+    const processImages = (data: { sectionData?: { images?: ImageData[] } }) => 
+    data?.sectionData?.images?.map(image => ({ url: image.publicUrl })) || [];
+    const images = galleryResponse?.sectionData?.images || [];
     return (
         <>
             <Header/>
@@ -68,8 +82,7 @@ export default async function AboutUs() {
                   <Divider/>
                   <BrandingSection label="TRAFFIC PARTNERS" data={mapImages(trafficData)}/>
                   <Special__Section/>
-                  <BrandingSection label="ADVERTISING PARTNERS" data={mapImages(advertisingData)} sideImage={true}/>
-                  <TestimonialSection/>
+                  <Gallery__Carousel images={images} />
                   <Newsletter/>
                   <Blog__Carousel blogs={blogs || []}/>
               </main>

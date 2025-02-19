@@ -28,9 +28,9 @@ export const Filter__Carousel = ({ categories, selectedFilter, setSelectedFilter
         <div className="mb-4">
             <Carousel
                 opts={{
-                    align: "start",
-                    dragFree: true,
-                    skipSnaps: false,
+                align: "start",
+                dragFree: true,
+                skipSnaps: false,
                 }}
                 className="w-full"
             >

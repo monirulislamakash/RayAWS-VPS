@@ -501,7 +501,7 @@ export default function HeroSection({ data }: { data: IHome_Hero_SectionData }) 
                         <CustomButton
                             label="Publisher"
                             href={data?.button_link_1}
-                            className="slide_from_top text-[16px] md:text-[22px] py-[8px] md:py-[16px] px-[14px] md:px-[22px] rounded-[4px] uppercase"
+                            className="slide_from_top text-[16px] md:text-[22px] py-[8px] md:py-[16px] px-[14px] md:px-[22px] rounded-[4px] uppercase m-[0px]"
                         />
                         <CustomButton
                             label="Advertiser"

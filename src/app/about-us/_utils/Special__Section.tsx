@@ -9,27 +9,27 @@ const specialty = [
     {
         icon: '/images/special/image 8.svg',
         title: 'EXCLUSIVE INVENTORY',
-        text: 'Ray Advertising offers products and services that are only available to a select group of affiliates, rather than being available to all members of the network. These offers have higher payouts or better terms than non-exclusive offers, and they are in high demand due to their exclusivity. Exclusive inventory is beneficial for affiliates, allowing top-performing affiliates to earn more money.'
+        text: 'Exclusive Inventory’ is one of our best specialties and what makes it so unique? It actually comprises extraordinary offers like High-Payout Campaigns, Limited-Edition Products, and Premium Services. The inventory is only accessible to the selected group of affiliates depending upon their performance analysis and commitments to the business. These exclusive deals, such as Early Access Offers and Bonus Commission Plans have greater chances of earning as they are meticulously designed for targeted performance-based marketing strategy. So, if you’re looking for higher payouts and unique opportunities, Exclusive Inventory is your golden ticket! [Note: I keep the highlighted terms for using those as anchor text/ Internal linking blogs/ other page , in help of ON page SEO]'
     },
     {
         icon: '/images/special/image 9.svg',
         title: 'FIRST-PARTY DATA ADVANTAGE',
-        text: 'Affiliates can gain access to first-party data about their customers when they run exclusive offers through Ray Advertising’s affiliate network. This data can include information such as demographics, purchasing history, browsing behavior, etc. Our Affiliates can optimize campaigns, improve targeting, and increase the effectiveness of offers.'
+        text: "Marketing without proper data research is like shooting in the dark. At Ray Advertising, first-party data support to our affiliates is another specialty. We offer useful information about customers’ demographics, such as age, location, purchasing history, and browsing behavior, which are essential for crafting an effective marketing strategy. Affiliates are privileged with this data at first hand so that they can easily create highly targeted campaigns, ads to reach the right audience, with accuracy and relevance. For example, knowing that a customer frequently buys sports gear or browses tech products allows affiliates to design campaigns like Personalized Discounts or Product Recommendations. When marketing contents become more relevant, more people are likely to be engaged, click more and increase purchases. This ensures affiliates' earning generation through a sure-shot/proven data-driven strategy."
     },
     {
         icon: '/images/special/image 11.svg',
         title: 'FRAUD PREVENTION',
-        text: 'Fraud prevention is an important aspect of Ray Advertising, as it can help to protect our network and our affiliates from financial losses and damage to their reputations. To prevent fraud, we implement strict guidelines for affiliate approval and regularly monitor affiliate activity. Also, we use fraud detection software and conduct regular audits to identify any potential fraud and take appropriate action.'
+        text: "Security is one of the main pillars of successful business relationships between advertisers, publishers, or the broader B2B and B2C chains. At Ray Advertising, fraud prevention is a top priority because we cannot let anyone waste their money and time. So, in the selection process of our affiliates, we evaluate their online profile and legal documents with in depth research. When a publisher sends customer calls or leads in PPC method, our Quality Control (QC) department analyzes each and every call manually and sorts the call recordings out, before sending them to the advertisers. We conduct a thorough cross-check to differentiate the fakes from the reals. If we find any counterfeit in our affiliate's performance, we take immediate action of suspending them if necessary. This rule ensures the integrity of our system and protects both advertisers and genuine affiliates."
     },
     {
         icon: '/images/special/image 12.svg',
         title: '24/7 SUPPORT',
-        text: 'Ray Advertising provides 24/7 support to ensure that their affiliates have access to assistance whenever they need it. Also, our affiliates may have questions or need assistance with setting up campaigns or optimizing their performance, and our 24/7 support can provide guidance and advice to help them succeed.'
+        text: "Real business is 10% product and 90% communication. In this performance-based marketing modus operandi, support and communication between advertisers and affiliates are deeply interconnected. In our Affiliate network system, 24/7 support is our commitment to accelerating our affiliates' workflow and enhancing their performance. Our affiliates often face questions about campaign optimization, audience targeting, or platform navigation. By providing real-time tips and guidance, we ensure that every step of their strategy is optimized as our dedicated support team is always available to assist them. In the vast ecosystem of advertisers and affiliates, seamless communication and reliable support are what set us apart. "
     },
     {
         icon: '/images/special/image 13.svg',
         title: 'Media Buying Team',
-        text: 'Ray Advertising provides 24/7 support to ensure that their affiliates have access to assistance whenever they need it. Also, our affiliates may have questions or need assistance with setting up campaigns or optimizing their performance, and our 24/7 support can provide guidance and advice to help them succeed.'
+        text: "It is known, “Success in advertising is built on two things: knowing your audience and being relentless in your support.” In this regard, our Media Buying Team plays a pivotal role in making the saying true. It is an exceptional part of both the advertisers and the affiliates. What’s tough about that? Well, this team not only provides 24/7 support and communication with affiliates but also ensures a balanced combination of several marketing departments in response to the chain of command, to run the entire workflow—which seems easier said than done. Along with technical assistance for setting up campaigns, the media buying team also works on brainstorming, analysis, and fixing the right strategy to guide in-house and outside affiliates, and this process is, in fact, a tough nut to crack."
     },
 ]
 

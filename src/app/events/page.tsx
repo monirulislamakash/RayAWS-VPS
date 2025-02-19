@@ -12,30 +12,25 @@ export const metadata: Metadata = {
 
 
 
-
 export default async function Events() {
-    const {tableData: blogs} = await getTableData({ tableName: "blogs" })     
-
+    const {tableData: blogs} = await getTableData({ tableName: "blogs" })
     const {tableData: events} = await getTableData({ tableName: "events" })
 
 
     return (
         <>
             <Header />
-            <main>
-                <PageHeaderSection title="Events" description="RAPIDLY GROWING #1 PERFORMANCE AFFILIATE NETWORK" bg="/images/events-bg.png" />
-
-                <div className="section">
-                    {
-                        events?.map((item, idx) => (
-                            <Events__Section key={idx} idx={idx} item={item} />
-                        ))
-                    }
-                </div>
-
-                <Blog__Carousel blogs={blogs || []} />
-
-            </main>
+                <main>
+                    <PageHeaderSection title="Events" description="RAPIDLY GROWING #1 PERFORMANCE AFFILIATE NETWORK" bg="/images/events-bg.png" />
+                    <div className="section">
+                        {
+                            events?.map((item, idx) => (
+                                <Events__Section key={idx} idx={idx} item={item} />
+                            ))
+                        }
+                    </div>
+                    <Blog__Carousel blogs={blogs || []} />
+                </main>
             <Footer />
         </>
     )

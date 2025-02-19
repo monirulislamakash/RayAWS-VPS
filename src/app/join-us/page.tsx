@@ -14,8 +14,15 @@ import Header from "@/components/common/layout/Header";
 import Custom__Button from "@/components/common/Custom__Button";
 import { getSectionData, getTableData } from "@/utils/api";
 import AnimateContainer from "../_utils/components/Animate_Container";
+import Blog__Carousel from "../about-us/_utils/Blog__Carousel";
 
 
+type Blog = {
+    id: number;
+    title: string;
+    description: string;
+    images: any[];
+  };
 
 const oswald = Oswald({ subsets: ['latin'], weight: ['400', '500', '600', '700'] })
 
@@ -64,7 +71,14 @@ const trafficData: any = await getSectionData({ sectionName: 'branding', isSingl
       url: image?.publicUrl
     }
   }) || []
-
+  // Add By me 
+  const [blogsResponse] = await Promise.all([
+    getTableData({ tableName: "blogs" }).catch(error => {
+      console.error('Failed to fetch blogs:', error);
+      return { tableData: [] };
+    }),
+  ]);
+  const blogs = blogsResponse.tableData as Blog[];
     return (
         <>
             <Header />
@@ -156,15 +170,13 @@ const trafficData: any = await getSectionData({ sectionName: 'branding', isSingl
                         <Image src="/images/middle-shape.png" className="object-contain rotate-180" width={75} height={75} alt="" />
                     </div> */}
                 </div>
-
-                <BrandingSection label="ADVERTISING PARTNERS" data={advertisingDataImages} sideImage={true} />
                 <FaqSection data={faqData?.tableData || []} />
                 <Divider />
                 <BrandingSection label="FEATURED IN" data={featuredInDataImages} />
                 <SponsoringSection />
-                <TestimonialSection />
-                <Newsletter />
                 <Gallery__Carousel images={images} />
+                <Newsletter />
+                <Blog__Carousel blogs={blogs} />
 
             </main>
             <Footer />

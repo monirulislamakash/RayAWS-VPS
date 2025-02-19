@@ -68,18 +68,17 @@ export default function ServicesSection({ data }: { data: any }) {
             <div className="container">
                 <Heading
                     label="What We Do"
-                    desc="Ray Advertising stands out because of its ability to assist Advertisers in more than 250+ verticals
-in reaching their intended audiences with effective digital advertising campaigns."
+                    desc="We help your business in multiple verticals with effective digital marketing campaigns. So that, you reach your targeted audience like never before. We deal with your business challenges and unite hands as your growth partner. "
                 />
                 {/* <AnimateContainer direction="downToUp"> {Akash}*/}
-                    <div className="services_wraper grid grid-cols-1 md:grid-cols-3 gap-5 pt-[60px]">
+                <div className="services_wraper grid grid-cols-1 md:grid-cols-3 gap-5 pt-[60px]">
                     {
                         // eslint-disable-next-line @typescript-eslint/no-explicit-any
                         data?.map((item: any, idx: number) => (
                             <ServicesCard key={idx} id={item.id} />
-                            ))
-                        }
-                    </div>
+                        ))
+                    }
+                </div>
                 {/* </AnimateContainer> */}
             </div>
 

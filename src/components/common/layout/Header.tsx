@@ -1,12 +1,13 @@
 'use client'
 import Link from "next/link";
-import Logo from "../Logo";
+// import Logo from "../Logo";
 import { Oswald } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { MbMenu } from "./Mb__Menu";
 import { motion } from "motion/react";
-
+import logo from '@/../public/images/logo.png'
+import Image from 'next/image'
 const oswald = Oswald({
     subsets: ['latin'],
     weight: '500'
@@ -52,7 +53,9 @@ export default function Header() {
         // transition={{duration: 0.5, delay: 0.5}}
         className=" bg-primary shadow-md h-[80px] md:h-[96px]">
             <div className={`${oswald.className} container flex items-center justify-between h-full`}>
-                <Logo />
+            <Link href="/">
+                <Image src={logo} className="w-[95px] h-[55px] md:w-[118px] md:h-[61px]" />
+            </Link>
                 <nav className="md:flex gap-5 hidden ">
                     <ul className="flex items-center gap-[4px] ">
                         {

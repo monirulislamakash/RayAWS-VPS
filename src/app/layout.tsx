@@ -31,12 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <AllHeaderTags />
+        {/* <AllHeaderTags /> */}
       </head>
       <body
         className={`${poppins.className} antialiased`}
       >
-        <AllbodyTag />
+        {/* <AllbodyTag /> */}
 
         {children}
         <Toaster />

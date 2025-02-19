@@ -45,7 +45,7 @@ export default async function SponsoringSection() {
                     label="Proudly Sponsoring"
                     headingStyle="text-white"
                     descStyle="text-white"
-                    desc="As a leading Affiliate Network, we are proud to sponsor and support a variety of innovative companies that share our vision of success. Our strategic partnerships help drive growth and empower businesses to reach new heights in the affiliate marketing world. We are committed to fostering long-term relationships that benefit all parties involved."
+                    desc="At Ray Advertising, we take pride in more than just partnerships. We proudly sponsor and support innovative industry events, tech events, affiliate search engine platforms, and similar initiatives that share our vision for success. Our strategies and collaboration help brands grow, expand, and make a real impact in the affiliate marketing world. To us, sponsoring is not only just funding, it’s more about lasting relationships that drive win-win situations for everyone involved."
                 />
                 {/* <AnimateContainer direction="downToUp"> {Akash} */}
 

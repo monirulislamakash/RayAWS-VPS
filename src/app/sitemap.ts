@@ -1,56 +1,29 @@
+import { createClient } from "@/utils/supabase/server";
+import { NextResponse } from "next/server";
 import type { MetadataRoute } from 'next'
- 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  return [
-    {
-        url:`https://rayadvertising.com`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/about-us`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/services`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/career`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/events`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/blog`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/contact`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/join-us`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/privacy-policy`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-    {
-        url:`https://rayadvertising.com/terms-condition`,
-        lastModified: new Date(),
-        changeFrequency: 'yearly',
-    },
-  ]
+
+async function getBlogs(){
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from('blogs')
+        .select()
+    return data
+}
+async function getEvents(){
+    const supabase = await createClient();
+    const { data, error } = await supabase
+        .from('events')
+        .select()
+    return data
+}
+export default async function sitemap():Promise<MetadataRoute.Sitemap>{
+    const baseUrl="https://rayadvertising.com";
+    const blogData= await getBlogs();
+    const eventData= await getEvents();
+
+    const malsiam=[{url:`${baseUrl}`,},{url:`${baseUrl}/about-us`,},{url:`${baseUrl}/services`,},{url:`${baseUrl}`,},{url:`${baseUrl}`,},{url:`${baseUrl}`,},{url:`${baseUrl}`,},]
+    blogData?.forEach((item: any, idx: number) => malsiam.push({url:`${baseUrl}/blog/${item.slug}`}))
+    eventData?.forEach((item: any, idx: number) => malsiam.push({url:`${baseUrl}/event/${item.id}`}))
+    return malsiam
+
 }

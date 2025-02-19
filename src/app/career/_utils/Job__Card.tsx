@@ -28,7 +28,7 @@ export default function Job__Card({ item }: { item: JobItem }) {
                     <Image src={item?.icon || "/images/uiuxicon.png"} alt={item?.name} width={27} height={27} />
                 </div>
                 <div className={`${oswald.className}`}>
-                    <h2 className={` uppercase text-primary text-[20px] font-medium `}>{item?.name}</h2>
+                    <h4 className={` uppercase text-primary text-[20px] font-medium `}>{item?.name}</h4>
                     <p className="text-base font-normal text-text_color">{item?.vacancies ? `${item?.vacancies} Positions  |` : ``}   {item?.remote ? `${item?.remote}  |` : ``}  {item?.job_type ? `${item?.job_type}` : ``}</p>
                 </div>
 

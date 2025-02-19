@@ -11,33 +11,6 @@ const oswald = Oswald({
 })
 
 
-// const faqData = [
-//     {
-//         id: 1,
-//         question: 'ARE THE LEADS RECEIVED EXCLUSIVE?',
-//         answer: `
-// Our leads are like precious gems – never shared and always unique! We value quality over quantity, so rest assured that you'll get the most accurate and up-to-date info on your leads. We do our homework too, double-checking every new lead against our comprehensive database of previous ones. We keep this database for at least 30 days, making sure no sneaky duplicates slip in. Beware of other companies that sell the same leads to multiple buyers at higher prices. With us, you'll get your money's worth!`
-//     },
-//     {
-//         id: 2,
-//         question: 'ARE ALL LEADS RECEIVED IN REAL TIME?',
-//             answer: `
-//     Our leads are like precious gems - never shared and always unique! We value quality over quantity, so rest assured that you'll get the most accurate and up-to-date info on your leads. We do our homework too, double-checking every new lead against our comprehensive database of previous ones. We keep this database for at least 30 days, making sure no sneaky duplicates slip in. Beware of other companies that sell the same leads to multiple buyers at higher prices. With us, you'll get your money's worth!`
-//     },
-//     {
-//         id: 3,
-//         question: 'IS THERE ANY VALIDATION OR QUALITY CONTROL?',
-//         answer: `
-//     Our leads are like precious gems - never shared and always unique! We value quality over quantity, so rest assured that you'll get the most accurate and up-to-date info on your leads. We do our homework too, double-checking every new lead against our comprehensive database of previous ones. We keep this database for at least 30 days, making sure no sneaky duplicates slip in. Beware of other companies that sell the same leads to multiple buyers at higher prices. With us, you'll get your money's worth!`
-//     },
-//     {
-//         id: 4,
-//         question: 'HOW ARE LEADS DELIVERED?',
-//         answer: `
-//     Our leads are like precious gems - never shared and always unique! We value quality over quantity, so rest assured that you'll get the most accurate and up-to-date info on your leads. We do our homework too, double-checking every new lead against our comprehensive database of previous ones. We keep this database for at least 30 days, making sure no sneaky duplicates slip in. Beware of other companies that sell the same leads to multiple buyers at higher prices. With us, you'll get your money's worth!`
-//     },
-// ]
-
 interface IFaq {
     id: number;
     question: string;

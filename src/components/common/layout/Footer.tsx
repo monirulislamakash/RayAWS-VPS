@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import AnimateContainer from "@/app/_utils/components/Animate_Container";
 import { getSectionData } from "@/utils/api";
 import { FacebookIcon, LinkedinIcon, XIcon, InstagramIcon, SendIcon } from "@/components/Icons";
+import logo from '@/../public/images/logo.png';
 
 const oswald = Oswald({
     subsets: ['latin'],
@@ -43,7 +44,7 @@ const menu = [
 const socials = [
     {
         href: 'https://www.facebook.com/rayadvertisingllc/',
-        icon: <FacebookIcon className="w-[40px] h-[40px]"/>
+        icon: <FacebookIcon className="w-[40px] h-[40px]" />
     },
     {
         href: 'https://www.linkedin.com/company/rayadvertising/mycompany/',
@@ -74,7 +75,9 @@ export default async function Footer() {
                     <div
                         className="container relative z-[5] grid grid-cols-12 lg:grid-cols-8 gap-20  md:place-items-center">
                         <div className="conpany__info col-span-12 lg:col-span-2">
-                            <Logo />
+                            <Link href="/">
+                                <Image src={logo} className="w-[95px] h-[55px] md:w-[118px] md:h-[61px]" />
+                            </Link>
                             <div className="box_item text-white pt-[20px]">
                                 <h3 className={`${oswald.className} flex items-center gap-1 text-[18px] font-[500] uppercase`}>
                                     <span><MapPin className="w-[20px] h-[20px] text-secondary" /></span>
@@ -135,7 +138,7 @@ export default async function Footer() {
                                             eventsData?.map((item: any, idx: any) => {
                                                 const image = item.images?.length > 0 ? item.images[0]?.publicUrl : null;
                                                 return (
-                                                    
+
                                                     <div key={idx} className=" relative w-[80px] h-[80px] group">
                                                         <Image className="w-full h-full object-cover rounded-[7px]" src={image} width={80} height={80} alt="blog image" />
                                                         <div className=" z-[1] rounded-[7px] absolute left-0 top-0 opacity-0 group-hover:opacity-100 transition-all duration-300  bg-[#56c1cddd] flex items-center justify-center w-full h-full">
@@ -181,7 +184,7 @@ export default async function Footer() {
                                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                             socials?.map((item: any, idx: any) => (
                                                 <li key={idx} className=" text-white">
-                                                    <Link target="_blank" rel="noopener"  className="hover:text-secondary hover:underline transition-all duration-500 block uppercase text-[14px] font-[500] tracking-wide" href={item.href}>
+                                                    <Link target="_blank" rel="noopener" className="hover:text-secondary hover:underline transition-all duration-500 block uppercase text-[14px] font-[500] tracking-wide" href={item.href}>
                                                         {item.icon}
                                                     </Link>
                                                 </li>
