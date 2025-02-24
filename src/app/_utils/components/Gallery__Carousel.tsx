@@ -58,7 +58,7 @@ export default function Gallery__Carousel({ images }: { images: string[] }) {
         // whileInView={{opacity: 1, x: 0}}
         // initial={{opacity: 0, x: -100}}
         // transition={{duration: 0.5, delay: 0.5}}
-        className="container section relative overflow-hidden">
+        className="container pt-[50px] relative overflow-hidden">
             <div className="flex justify-between">
                 <div className="flex items-center gap-[14px]">
                     <span>

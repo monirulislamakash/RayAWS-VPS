@@ -38,7 +38,7 @@ export default function WhyChooseSection() {
                 <div className=" z-20  relative">
                     <Heading
                         label="Why Choose US"
-                        desc={`We focus on quality, delivering high-converting leads and calls on numerous domains. Our data-driven strategies ensure you reach the right audience at the right time. With our trusted and expert affiliates, we promote success, growth, and scalability to your business.`}
+                        desc={`We focus on quality, delivering high-converting leads and calls in multiple industries. Our data-driven strategies ensure you reach the right audience at the right time. We offer higher payouts to our Affiliates in the industry. With our trusted and expert affiliates, we promote success, growth, and scalability to your business.`}
                         headingStyle="text-white"
                         descStyle="text-white"
                     />

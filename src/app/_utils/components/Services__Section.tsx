@@ -68,7 +68,7 @@ export default function ServicesSection({ data }: { data: any }) {
             <div className="container">
                 <Heading
                     label="What We Do"
-                    desc="We help your business in multiple verticals with effective digital marketing campaigns. So that, you reach your targeted audience like never before. We deal with your business challenges and unite hands as your growth partner. "
+                    desc="We help your business in multiple verticals with effective performance marketing campaigns so that you reach your targeted audience like nobody else. We deal with your business challenges and unite hands as your growth partner."
                 />
                 {/* <AnimateContainer direction="downToUp"> {Akash}*/}
                 <div className="services_wraper grid grid-cols-1 md:grid-cols-3 gap-5 pt-[60px]">

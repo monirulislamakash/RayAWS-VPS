@@ -25,7 +25,7 @@ interface BlogCarouselProps {
 export default function Blog__Carousel({ blogs }: BlogCarouselProps) {
 
     return (
-        <div className="container section relative">
+        <div className="container pb-[80px] relative">
             <div className="">
                 <motion.div 
                     // top to bottom

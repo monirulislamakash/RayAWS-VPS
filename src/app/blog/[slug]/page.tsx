@@ -10,6 +10,9 @@ import { createClient } from "@/utils/supabase/server";
 import { getTableData } from "@/utils/api";
 import Share from "@/app/blog/_utils/Share";
 import moment from "moment";
+import { Article, WithContext } from "schema-dts";
+import Script from "next/script";
+
 
 // const oswald = Oswald({
 //     subsets: ['latin'],
@@ -46,6 +49,22 @@ export default async function SingleBlog({ params: { slug } }: any) {
             title: blogsData?.author_name,
         },
     ]
+    const jsonLd: WithContext<Article> = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": `${blogsData?.title}`,
+        "description":`${blogsData?.description}`,
+        "datePublished":`${blogsData?.created_at}`,
+        "image":`${blogsData?.image}`,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Ray Advertising",
+          "logo": {
+            "@type": "ImageObject",
+            "url":`${blogsData?.title}`
+          }
+        }
+    }
     return (
         <>
             <Header />
@@ -82,6 +101,7 @@ export default async function SingleBlog({ params: { slug } }: any) {
                 <Blog__Carousel blogs={tableData || []} />
             </main>
             <Footer />
+            <Script id="Articles-schema" type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd),}}/>
         </>
     )
 }

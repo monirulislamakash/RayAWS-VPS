@@ -21,7 +21,7 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
     const blogData= await getBlogs();
     const eventData= await getEvents();
 
-    const malsiam=[{url:`${baseUrl}`,},{url:`${baseUrl}/about-us`,},{url:`${baseUrl}/services`,},{url:`${baseUrl}`,},{url:`${baseUrl}`,},{url:`${baseUrl}`,},{url:`${baseUrl}`,},]
+    const malsiam=[{url:`${baseUrl}`,},{url:`${baseUrl}/about-us`,},{url:`${baseUrl}/services`,},{url:`${baseUrl}/career`,},{url:`${baseUrl}/events`,},{url:`${baseUrl}/blog`,},{url:`${baseUrl}/contact`,},{url:`${baseUrl}/join-us`,},{url:`${baseUrl}/privacy-policy`,},{url:`${baseUrl}/terms-condition`,},]
     blogData?.forEach((item: any, idx: number) => malsiam.push({url:`${baseUrl}/blog/${item.slug}`}))
     eventData?.forEach((item: any, idx: number) => malsiam.push({url:`${baseUrl}/event/${item.id}`}))
     return malsiam

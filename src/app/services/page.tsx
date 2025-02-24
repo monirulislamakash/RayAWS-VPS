@@ -36,8 +36,8 @@ export default async function Services() {
         }),
       ]);
       const blogs = blogsResponse.tableData as Blog[];
-    const images = galleryResponse?.sectionData?.images || [];
-    const servicesData = servicesResponse?.sectionData; 
+      const images = galleryResponse?.sectionData?.images || [];
+      const servicesData = servicesResponse?.sectionData; 
 
     return (
         <>
@@ -45,7 +45,6 @@ export default async function Services() {
             <main>
                 <PageHeaderSection title="Our Services" description="We Make sure to provide you the #best quality Service" bg="/images/services-bg.png" />
                 <Services__Common__Section data={servicesData?.cards} />
-                <NetworkVideoSection />
                 <GallerySection images={images} />
                 <NewsletterSection />
                 <Blog__Carousel blogs={blogs} />

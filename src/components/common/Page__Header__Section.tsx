@@ -20,7 +20,7 @@ export default function PageHeaderSection({ title, description, bg, data, isButt
         <div className='relative bg-cover bg-center text-center py-[60px] md:py-[80px] bg-primary' 
              style={backgroundStyle}>
             <motion.div
-                // Optimize animation performance
+                // Optimize animation performanc e
                 initial={{ opacity: 0, y: -50 }} // Reduced initial offset for smoother animation
                 whileInView={{ opacity: 1, y: 0 }} // Use whileInView instead of animate for better performance
                 viewport={{ once: true }} // Ensure animation only plays once

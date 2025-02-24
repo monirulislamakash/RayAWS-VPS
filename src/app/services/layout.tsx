@@ -1,13 +1,14 @@
 import Script from "next/script";
-import { Organization, WithContext } from "schema-dts";
+import { Service, WithContext } from "schema-dts";
 
-const jsonLd: WithContext<Organization> = {
+const jsonLd: WithContext<Service> = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ray Advertising | Service",
-  "url": "https://rayadvertising.com/service",
+  "@type": "Service",
+  "name": "Ray Advertising | Services",
+  "url": "https://rayadvertising.com/services",
+  "logo": "https://www.rayadvertising.com/logo.png",
   "description": "Ray Advertising offers top-notch digital marketing services, including Pay Per Call, Lead Generation, and Affiliate Network solutions.",
-  "service": [
+  "services": [
     {
       "@type": "Service",
       "serviceType": "Pay Per Call",
@@ -22,27 +23,18 @@ const jsonLd: WithContext<Organization> = {
       "@type": "Service",
       "serviceType": "Affiliate Network",
       "description": "Join our affiliate network and monetize your traffic with top-performing offers."
-    }
-  ],
-
+    }],
 };
-export default function eventsLayout({
+
+export default function PasswordGeneratorLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    
-    <html lang="en">
-    <head>
-      <Script id="service-schema" type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd),}}/>
-    </head>
-    <body>
-      
-
+    <>
+      <Script id="Services-schema" type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd),}}/>
       {children}
-
-    </body>
-  </html>
+    </>
   );
 }
