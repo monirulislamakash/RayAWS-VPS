@@ -24,7 +24,7 @@ type Blog = {
     images: any[];
   };
 export const metadata: Metadata = {
-    title: "Blog - Ray Advertising",
+    title: "Lead Generation - Ray Advertising",
     description: "Ray Advertising",
 };
 
